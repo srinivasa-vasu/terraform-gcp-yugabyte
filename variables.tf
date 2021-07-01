@@ -4,7 +4,7 @@ variable "cluster_name" {
 }
 variable "use_public_ip_for_ssh" {
   description = "Flag to control use of public or private ips for ssh."
-  default = "true"
+  default = "false"
   type = string
 }
 variable "replication_factor" {
@@ -75,5 +75,26 @@ variable "disk_size" {
 variable "prefix" {
   description = "Prefix prepended to all resources created."
   default     = "yugabyte-"
+  type        = string
+}
+
+variable "network_cidr" {
+  type        = string
+  description = "cidr for fresh VPC network subnet"
+  default     = "10.0.4.0/24"
+}
+
+variable "use_existing_vpc" {
+  description = "Flag to determine new VPC creation"
+  default     = true
+}
+
+variable "project" {
+  description = "GCP project name"
+  type        = string
+}
+
+variable "credentials" {
+  description = "IAM Creds"
   type        = string
 }
